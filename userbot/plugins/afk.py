@@ -34,7 +34,9 @@ class AFK:
 AFK_ = AFK()
 
 
-@catub.cat_cmd(outgoing=True, edited=False)
+@catub.cat_cmd(
+    pattern="afkshutdown(?:\s|$)([\s\S]*)",
+    command=("afkshutdown", plugin_category),
 async def set_not_afk(event):
     if AFK_.afk_on is False:
         return
